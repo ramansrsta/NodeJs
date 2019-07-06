@@ -8,23 +8,24 @@ const bodyParser = require('body-parser');
 // const server = http.createServer(routes);
 // console.log('I am loving it');
 const app = express();
+app.set('view engine', 'pug');
 // app.use((req,res,next) => {
 //     console.log('in the middleware');
 //     next();//allows request to move to next middle ware
 // });
 
 //Admin route
-const adminRoutes = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'public')));
 
-app.use(adminRoutes);
+app.use(adminData.routes);
 app.use(shopRoutes);
 
 app.use((req,res,next) => {
-    res.status(404).sendFile(path.join(__dirname,'views','pagenotFound.html'));
+    res.status(404).render('pagenotFound',{title:'Error 404'});
 });
 
 
