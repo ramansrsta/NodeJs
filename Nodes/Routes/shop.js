@@ -10,7 +10,7 @@ router.get('/',(req,res,next) => {
     res.render('shop',{
         prods:products,
         title:'shop',
-        destination:'/sh'
+        path:'/sh'   //use destination insted of path while using pug destination:'/sh'
     });
 
 });

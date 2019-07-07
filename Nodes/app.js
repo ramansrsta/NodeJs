@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 // const server = http.createServer(routes);
 // console.log('I am loving it');
 const app = express();
-app.set('view engine', 'pug');
+// app.set('view engine', 'pug');
+app.set('view engine','ejs'); //importing ejs
 // app.use((req,res,next) => {
 //     console.log('in the middleware');
 //     next();//allows request to move to next middle ware
