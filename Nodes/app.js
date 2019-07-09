@@ -1,20 +1,13 @@
-// const http = require('http'); //require is needed for importing modules and files//after writing app.listen we need not to write this as well
-// const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-// const routes = require('./routes');
-// const server = http.createServer(routes);
-// console.log('I am loving it');
+
 const app = express();
 const errorController = require('./controllers/error.js');
-// app.set('view engine', 'pug');
+
 app.set('view engine','ejs'); //importing ejs
-// app.use((req,res,next) => {
-//     console.log('in the middleware');
-//     next();//allows request to move to next middle ware
-// });
+
 
 //Admin route
 const adminRoutes = require('./routes/admin');
@@ -25,12 +18,6 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.use(adminRoutes);
 app.use(shopRoutes);
-
 app.use(errorController.get404);
 
-
-// const server = http.createServer(app);
-// server.listen(3000);
-
-//instead of other code we can use just
 app.listen(3000);

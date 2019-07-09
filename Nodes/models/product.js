@@ -21,16 +21,15 @@ const getProductFromFile = (cb) => {
 };
 
 module.exports = class Product {
-    constructor(titleOfProduct)
+    constructor(title, imageUrl, price, description)
     {
-        this.title = titleOfProduct;
+        this.title = title;
+        this.imageUrl = imageUrl;
+        this.price = price;
+        this.description = description;
     }
     save()
     {
-        // products.push(this);
-        // const p = path.join(path.dirname(process.mainModule.filename),
-        // 'data',
-        // 'products.json');
         getProductFromFile(products =>
         {
             products.push(this);
@@ -39,19 +38,6 @@ module.exports = class Product {
                 console.log(err);
             });
         });
-        // fs.readFile(p,(err,fileContent) =>
-        // {   
-        //     // let products = [];
-        //     // if(!err){
-        //     //     products = JSON.parse(fileContent);
-        //     // }
-        //     products.push(this);
-        //     fs.writeFile(p,JSON.stringify(products),(err) => 
-        //     {
-        //         console.log(err);
-        //     });
-           
-        // });
     }
     static fetchAll(cb)
     {
