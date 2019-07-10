@@ -186,6 +186,9 @@ form {
   border-radius: 3px;
   cursor: pointer;
 }
+.centered{
+  text-align: center;
+}
 
 .btn:hover,
 .btn:active {
